@@ -1,0 +1,174 @@
+.angle-slider {
+  --angle-slider-track-size: 12px;
+  --angle-slider-thumb-size: 20px;
+  --angle-slider-marker-size: 6px;
+  --angle-slider-track-inset: calc((var(--angle-slider-thumb-size) - var(--angle-slider-track-size)) / 2);
+
+  display: inline-grid;
+  justify-items: center;
+  gap: 10px;
+  width: fit-content;
+}
+
+.angle-slider[data-disabled] {
+  opacity: 0.65;
+}
+
+.angle-slider__label {
+  color: var(--fg-faint);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: var(--tracking-wide);
+  text-align: center;
+}
+
+.angle-slider__control {
+  position: relative;
+  width: var(--angle-slider-size, 160px);
+  height: var(--angle-slider-size, 160px);
+  border-radius: 999px;
+  background: var(--bg-card);
+  cursor: grab;
+  touch-action: none;
+  transition: box-shadow 0.18s ease;
+}
+
+.angle-slider__control::before,
+.angle-slider__control::after {
+  content: '';
+  position: absolute;
+  inset: var(--angle-slider-track-inset);
+  border-radius: inherit;
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--angle-slider-track-size)),
+    #000 calc(100% - var(--angle-slider-track-size) + 1px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--angle-slider-track-size)),
+    #000 calc(100% - var(--angle-slider-track-size) + 1px)
+  );
+}
+
+.angle-slider__control::before {
+  background: color-mix(in oklab, var(--bg-card) 20%, var(--border));
+}
+
+.angle-slider__control::after {
+  background: conic-gradient(
+    from 0deg,
+    var(--accent) 0deg,
+    color-mix(in oklab, var(--accent) 75%, white) calc(var(--value) * 1deg),
+    transparent calc(var(--value) * 1deg) 360deg
+  );
+}
+
+.angle-slider__control:hover {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 45%, transparent);
+}
+
+.angle-slider__control:active {
+  cursor: grabbing;
+}
+
+.angle-slider[data-disabled] .angle-slider__control {
+  cursor: not-allowed;
+}
+
+.angle-slider[data-invalid] .angle-slider__control {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 65%, transparent);
+}
+
+.angle-slider__marker-group,
+.angle-slider__center-text,
+.angle-slider__thumb,
+.angle-slider__marker {
+  position: absolute;
+  inset: 0;
+}
+
+.angle-slider__marker-group {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.angle-slider__center-text {
+  z-index: 2;
+  pointer-events: none;
+  display: grid;
+  place-content: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.angle-slider__value-text {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: clamp(24px, calc(var(--angle-slider-size, 160px) * 0.2), 32px);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.angle-slider__unit-label {
+  color: var(--fg-faint);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1;
+}
+
+.angle-slider__thumb {
+  z-index: 3;
+  border-radius: 999px;
+}
+
+.angle-slider__thumb::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--angle-slider-track-inset) + (var(--angle-slider-track-size) / 2) - (var(--angle-slider-thumb-size) / 2));
+  left: 50%;
+  width: var(--angle-slider-thumb-size);
+  height: var(--angle-slider-thumb-size);
+  border: 2px solid var(--bg-card);
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 22%, transparent);
+  transform: translateX(-50%);
+}
+
+.angle-slider__thumb:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.angle-slider__marker::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--angle-slider-track-inset) + (var(--angle-slider-track-size) / 2) - (var(--angle-slider-marker-size) / 2));
+  left: 50%;
+  width: var(--angle-slider-marker-size);
+  height: var(--angle-slider-marker-size);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--bg-card) 25%, var(--border-strong));
+  box-shadow: 0 0 0 1px var(--bg-card);
+  transform: translateX(-50%);
+}
+
+.angle-slider__marker[data-state='under-value']::before,
+.angle-slider__marker[data-state='at-value']::before {
+  background: var(--accent);
+}
+
+.angle-slider[data-disabled] .angle-slider__marker::before {
+  background: var(--border);
+}
+
+.angle-slider[data-disabled] .angle-slider__thumb::before {
+  background: var(--fg-faint);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--fg-faint) 18%, transparent);
+}
+
+.angle-slider[data-disabled] .angle-slider__value-text {
+  color: var(--fg-faint);
+}

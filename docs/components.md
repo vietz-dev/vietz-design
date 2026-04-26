@@ -34,6 +34,15 @@ Global baseline styles are provided for:
 - purpose: disclosure content with branded styling and accessible behavior
 - notable states: open, closed, disabled, dark-theme compatible through tokens
 
+### AngleSlider
+
+- package: `@vietz-design/react`
+- file: `packages/vietz-design-react/src/components/angle-slider/angle-slider.tsx`
+- status: implemented
+- basis: Ark UI Angle Slider
+- purpose: branded circular input for selecting an angle in degrees
+- notable states: markers, stepped selection via Ark UI `step`, disabled, invalid, dark-theme compatible through tokens
+
 ### Button
 
 - package: `@vietz-design/react`
@@ -62,6 +71,15 @@ Global baseline styles are provided for:
 - basis: Ark UI Field
 - purpose: accessible form-field wrapper for labels, helper text, error text, and required state
 - notable states: required, invalid, disabled, read-only through Ark UI field state
+
+### Fieldset
+
+- package: `@vietz-design/react`
+- file: `packages/vietz-design-react/src/components/fieldset/fieldset.tsx`
+- status: implemented
+- basis: Ark UI Fieldset
+- purpose: accessible grouping container for related form controls with legend, helper text, and error text
+- notable states: disabled, helper text, error text, dark-theme compatible through tokens
 
 ### Input
 

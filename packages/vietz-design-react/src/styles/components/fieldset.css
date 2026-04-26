@@ -1,0 +1,44 @@
+.fieldset {
+  display: grid;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  background: var(--bg-card);
+}
+
+.fieldset[data-disabled] {
+  opacity: 0.8;
+}
+
+.fieldset__legend {
+  padding: 0 6px;
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.fieldset__content {
+  display: grid;
+  gap: 14px;
+}
+
+.fieldset__helper-text,
+.fieldset__error-text {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.fieldset__helper-text {
+  color: var(--fg-muted);
+}
+
+.fieldset__error-text {
+  color: var(--accent);
+}

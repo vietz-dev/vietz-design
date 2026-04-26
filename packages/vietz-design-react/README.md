@@ -12,15 +12,17 @@ pnpm add @vietz-design/react @ark-ui/react
 
 ```tsx
 import '@vietz-design/react/styles.css'
-import { Accordion, Button, Checkbox, Field, Input, RadioGroup, Select, Switch, Tag, SurfaceCard, Textarea } from '@vietz-design/react'
+import { Accordion, AngleSlider, Button, Checkbox, Field, Fieldset, Input, RadioGroup, Select, Switch, Tag, SurfaceCard, Textarea } from '@vietz-design/react'
 ```
 
 ## Included today
 
 - Accordion
+- AngleSlider
 - Button
 - Checkbox
 - Field
+- Fieldset
 - Input
 - RadioGroup
 - Select

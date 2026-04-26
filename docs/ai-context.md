@@ -37,9 +37,11 @@ Implemented foundations:
 Implemented components:
 
 - `Accordion` — Ark UI based
+- `AngleSlider` — Ark UI based, including stepped usage
 - `Button`
 - `Checkbox` — Ark UI based
 - `Field` — Ark UI based
+- `Fieldset` — Ark UI based
 - `Input` — Ark UI Field based
 - `RadioGroup` — Ark UI based
 - `Select` — Ark UI based
