@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+:root {
+  color-scheme: light;
+
+  --bg: oklch(97% 0.012 85);
+  --bg-card: oklch(98.5% 0.009 85);
+
+  --fg: oklch(16% 0.01 255);
+  --fg-muted: oklch(48% 0.01 255);
+  --fg-faint: oklch(65% 0.01 255);
+
+  --border: oklch(82% 0.012 85);
+  --border-strong: oklch(70% 0.012 85);
+
+  --accent: oklch(52% 0.14 38);
+  --accent-bg: oklch(94% 0.04 38);
+
+  --shadow-hover: 6px 6px 0 oklch(72% 0.012 85);
+  --shadow-hover-strong: 8px 8px 0 oklch(65% 0.016 38);
+
+  --code-bg: oklch(20% 0.01 255);
+  --code-fg: oklch(90% 0.01 255);
+
+  --tag-bg: oklch(20% 0.01 255);
+  --tag-fg: oklch(97% 0.01 255);
+
+  --font-sans: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-md: 17px;
+  --text-lg: 20px;
+  --text-xl: clamp(28px, 5vw, 44px);
+  --text-2xl: clamp(36px, 6vw, 52px);
+
+  --leading-tight: 1.15;
+  --leading-normal: 1.6;
+  --leading-prose: 1.8;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.08em;
+
+  --radius-card: 10px;
+  --radius-tag: 3px;
+  --radius-code: 8px;
+
+  --container-width: 768px;
+  --container-padding: 24px;
+  --section-padding-top: 56px;
+  --section-padding-bottom: 80px;
+}
+
+:root.dark,
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: oklch(13% 0.008 255);
+  --bg-card: oklch(17% 0.008 255);
+
+  --fg: oklch(93% 0.008 85);
+  --fg-muted: oklch(62% 0.008 255);
+  --fg-faint: oklch(45% 0.008 255);
+
+  --border: oklch(26% 0.008 255);
+  --border-strong: oklch(35% 0.008 255);
+
+  --accent: oklch(70% 0.14 38);
+  --accent-bg: oklch(22% 0.06 38);
+
+  --shadow-hover: 6px 6px 0 oklch(8% 0.008 255);
+  --shadow-hover-strong: 8px 8px 0 oklch(38% 0.08 38);
+
+  --code-bg: oklch(10% 0.008 255);
+  --code-fg: oklch(85% 0.01 255);
+
+  --tag-bg: oklch(80% 0.008 85);
+  --tag-fg: oklch(16% 0.01 255);
+}

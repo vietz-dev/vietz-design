@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@vietz-design/react": ["../../packages/vietz-design-react/src/index.ts"]
+    }
+  },
+  "include": [
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx",
+    "stories/**/*.ts",
+    "stories/**/*.tsx"
+  ]
+}

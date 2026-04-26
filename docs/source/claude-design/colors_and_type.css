@@ -1,0 +1,231 @@
+/* ============================================================
+   vietz.dev Design System — Colors & Typography
+   ============================================================ */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+/* ── COLOR TOKENS ─────────────────────────────────────────── */
+
+:root {
+  color-scheme: light;
+
+  /* Surfaces */
+  --bg:          oklch(97% 0.012 85);
+  --bg-card:     oklch(98.5% 0.009 85);
+
+  /* Foregrounds */
+  --fg:          oklch(16% 0.01 255);
+  --fg-muted:    oklch(48% 0.01 255);
+  --fg-faint:    oklch(65% 0.01 255);
+
+  /* Borders */
+  --border:        oklch(82% 0.012 85);
+  --border-strong: oklch(70% 0.012 85);
+
+  /* Accent — burnt/rust orange */
+  --accent:    oklch(52% 0.14 38);
+  --accent-bg: oklch(94% 0.04 38);
+
+  /* Shadows (flat, no blur) */
+  --shadow-hover:        6px 6px 0 oklch(72% 0.012 85);
+  --shadow-hover-strong: 8px 8px 0 oklch(65% 0.016 38);
+
+  /* Code */
+  --code-bg: oklch(20% 0.01 255);
+  --code-fg: oklch(90% 0.01 255);
+
+  /* Tags */
+  --tag-bg: oklch(20% 0.01 255);
+  --tag-fg: oklch(97% 0.01 255);
+}
+
+:root.dark,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg:          oklch(13% 0.008 255);
+  --bg-card:     oklch(17% 0.008 255);
+
+  --fg:          oklch(93% 0.008 85);
+  --fg-muted:    oklch(62% 0.008 255);
+  --fg-faint:    oklch(45% 0.008 255);
+
+  --border:        oklch(26% 0.008 255);
+  --border-strong: oklch(35% 0.008 255);
+
+  --accent:    oklch(70% 0.14 38);
+  --accent-bg: oklch(22% 0.06 38);
+
+  --shadow-hover:        6px 6px 0 oklch(8% 0.008 255);
+  --shadow-hover-strong: 8px 8px 0 oklch(38% 0.08 38);
+
+  --code-bg: oklch(10% 0.008 255);
+  --code-fg: oklch(85% 0.01 255);
+
+  --tag-bg: oklch(80% 0.008 85);
+  --tag-fg: oklch(16% 0.01 255);
+}
+
+/* ── TYPOGRAPHY SCALE ─────────────────────────────────────── */
+
+:root {
+  --font-sans: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  /* Scale */
+  --text-xs:   11px;   /* tags, micro-labels */
+  --text-sm:   13px;   /* muted meta, captions */
+  --text-base: 15px;   /* body prose */
+  --text-md:   17px;   /* h3 in prose */
+  --text-lg:   20px;   /* h2 in prose */
+  --text-xl:   clamp(28px, 5vw, 44px);  /* display title */
+  --text-2xl:  clamp(36px, 6vw, 52px);  /* page title */
+
+  /* Leading */
+  --leading-tight:  1.15;
+  --leading-normal: 1.6;
+  --leading-prose:  1.8;
+
+  /* Tracking */
+  --tracking-tight:    -0.02em;
+  --tracking-normal:    0em;
+  --tracking-wide:      0.08em;
+}
+
+/* ── SEMANTIC TYPE CLASSES ────────────────────────────────── */
+
+.page-title,
+.display-title {
+  font-family: var(--font-mono);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg);
+  margin: 0;
+}
+
+.page-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.display-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+}
+
+.body-text {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-prose);
+  color: var(--fg-muted);
+}
+
+.muted-meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--fg-faint);
+}
+
+/* ── COMPONENTS ───────────────────────────────────────────── */
+
+/* Card surface */
+.surface-card {
+  display: block;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 10px;
+  padding: 20px 24px;
+  background: var(--bg-card);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.18s, box-shadow 0.18s, color 0.18s, border-color 0.18s;
+}
+
+.surface-card.is-interactive:hover,
+.surface-card.is-interactive:focus-visible {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-hover-strong);
+}
+
+/* Focus ring — global */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Tags */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1;
+  letter-spacing: var(--tracking-wide);
+  border-radius: 3px;
+  padding: 4px 8px;
+}
+
+.tag-dark {
+  background: var(--tag-bg);
+  color: var(--tag-fg);
+}
+
+.tag-accent {
+  background: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+/* Links */
+.text-link {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Inline code */
+.inline-code {
+  background: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid color-mix(in oklab, var(--accent) 45%, transparent);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+/* Code block */
+.code-block {
+  background: var(--code-bg);
+  color: var(--code-fg);
+  font-family: var(--font-mono);
+  padding: 18px 22px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Layout */
+.site-container {
+  width: min(100%, 768px);
+  margin: 0 auto;
+  padding-inline: 24px;
+}
+
+.page-section {
+  padding-top: 56px;
+  padding-bottom: 80px;
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-bg);
+  color: var(--fg);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: var(--border-strong); border-radius: 999px; }

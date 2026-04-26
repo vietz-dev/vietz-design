@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: oklch(97% 0.012 85);
+    font-family: "IBM Plex Sans", sans-serif;
+    padding: 20px 24px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .dial-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .dial-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    color: oklch(65% 0.01 255);
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .dial-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+  }
+  .dial-container.disabled { cursor: not-allowed; }
+  .dial-container:active { cursor: grabbing; }
+  canvas { display: block; }
+  .dial-center-text {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+  }
+  .dial-value {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .dial-unit {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 400;
+  }
+</style>
+</head>
+<body>
+
+<!-- Light mode interactive -->
+<div class="dial-wrap">
+  <div class="dial-label">light mode</div>
+  <div class="dial-container" id="c1-wrap">
+    <canvas id="c1" width="160" height="160"></canvas>
+    <div class="dial-center-text">
+      <span class="dial-value" id="v1" style="font-size:32px; color:oklch(52% 0.14 38)">135°</span>
+      <span class="dial-unit" style="font-size:11px; color:oklch(65% 0.01 255); margin-top:4px">degrees</span>
+    </div>
+  </div>
+</div>
+
+<!-- Light mode with step markers -->
+<div class="dial-wrap">
+  <div class="dial-label">with markers (step 45°)</div>
+  <div class="dial-container" id="c2-wrap">
+    <canvas id="c2" width="160" height="160"></canvas>
+    <div class="dial-center-text">
+      <span class="dial-value" id="v2" style="font-size:32px; color:oklch(52% 0.14 38)">90°</span>
+      <span class="dial-unit" style="font-size:11px; color:oklch(65% 0.01 255); margin-top:4px">degrees</span>
+    </div>
+  </div>
+</div>
+
+<!-- Disabled -->
+<div class="dial-wrap">
+  <div class="dial-label">disabled</div>
+  <div class="dial-container disabled" id="c3-wrap">
+    <canvas id="c3" width="120" height="120"></canvas>
+    <div class="dial-center-text">
+      <span class="dial-value" style="font-size:24px; color:oklch(65% 0.01 255)">60°</span>
+      <span class="dial-unit" style="font-size:10px; color:oklch(65% 0.01 255); margin-top:3px">degrees</span>
+    </div>
+  </div>
+</div>
+
+<!-- Dark mode -->
+<div class="dial-wrap">
+  <div class="dial-label">dark mode</div>
+  <div style="background:oklch(13% 0.008 255); border-radius:12px; padding:16px 20px; display:flex; gap:20px;">
+    <div class="dial-container" id="c4-wrap">
+      <canvas id="c4" width="140" height="140"></canvas>
+      <div class="dial-center-text">
+        <span class="dial-value" id="v4" style="font-size:28px; color:oklch(70% 0.14 38)">220°</span>
+        <span class="dial-unit" style="font-size:10px; color:oklch(45% 0.008 255); margin-top:4px">degrees</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function drawDial({ canvasId, angle, dark, disabled, step, showMarkers, trackWidth, arcWidth }) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const size = canvas.width;
+  const cx = size / 2, cy = size / 2;
+  const r = size / 2 - (arcWidth || 12) - 4;
+  const tw = trackWidth || 10;
+  const aw = arcWidth || 12;
+
+  // colors
+  const trackColor   = dark ? 'oklch(22% 0.008 255)' : 'oklch(88% 0.01 85)';
+  const arcColor     = dark ? 'oklch(70% 0.14 38)' : 'oklch(52% 0.14 38)';
+  const arcColorFade = dark ? 'oklch(40% 0.1 38)'  : 'oklch(68% 0.12 38)';
+  const thumbBg      = dark ? 'oklch(17% 0.008 255)': 'oklch(98.5% 0.009 85)';
+  const markerColor  = dark ? 'oklch(30% 0.008 255)': 'oklch(78% 0.01 85)';
+  const markerActive = arcColor;
+
+  ctx.clearRect(0, 0, size, size);
+
+  // Track ring
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  ctx.strokeStyle = trackColor;
+  ctx.lineWidth = tw;
+  ctx.lineCap = 'butt';
+  ctx.stroke();
+
+  if (disabled) {
+    // Faint arc
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + (60 * Math.PI / 180));
+    ctx.strokeStyle = dark ? 'oklch(30% 0.008 255)' : 'oklch(78% 0.01 85)';
+    ctx.lineWidth = aw;
+    ctx.lineCap = 'round';
+    ctx.stroke();
+    // Faint thumb
+    const ea = -Math.PI / 2 + (60 * Math.PI / 180);
+    ctx.beginPath();
+    ctx.arc(cx + r * Math.cos(ea), cy + r * Math.sin(ea), aw * 0.85, 0, Math.PI * 2);
+    ctx.fillStyle = dark ? 'oklch(30% 0.008 255)' : 'oklch(78% 0.01 85)';
+    ctx.fill();
+    return;
+  }
+
+  const startAngle = -Math.PI / 2;
+  const endAngle = startAngle + (angle * Math.PI / 180);
+
+  // Gradient arc
+  const thumbX = cx + r * Math.cos(endAngle);
+  const thumbY = cy + r * Math.sin(endAngle);
+  const grad = ctx.createLinearGradient(cx, cy - r, thumbX, thumbY);
+  grad.addColorStop(0, arcColorFade);
+  grad.addColorStop(1, arcColor);
+
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, startAngle, endAngle);
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = aw;
+  ctx.lineCap = 'round';
+  ctx.stroke();
+
+  // Step markers
+  if (showMarkers && step) {
+    for (let a = 0; a < 360; a += step) {
+      const rad = (a - 90) * Math.PI / 180;
+      const mx = cx + r * Math.cos(rad);
+      const my = cy + r * Math.sin(rad);
+      const isActive = a <= angle + 0.5;
+      ctx.beginPath();
+      ctx.arc(mx, my, 3, 0, Math.PI * 2);
+      ctx.fillStyle = isActive ? markerActive : markerColor;
+      ctx.fill();
+    }
+  }
+
+  // Thumb
+  const thumbR = aw * 0.9;
+  // outer glow
+  ctx.beginPath();
+  ctx.arc(thumbX, thumbY, thumbR + 3, 0, Math.PI * 2);
+  ctx.fillStyle = dark
+    ? 'oklch(70% 0.14 38 / 0.2)'
+    : 'oklch(52% 0.14 38 / 0.2)';
+  ctx.fill();
+  // filled thumb
+  ctx.beginPath();
+  ctx.arc(thumbX, thumbY, thumbR, 0, Math.PI * 2);
+  ctx.fillStyle = arcColor;
+  ctx.fill();
+  // inner highlight
+  ctx.beginPath();
+  ctx.arc(thumbX, thumbY, thumbR - 3, 0, Math.PI * 2);
+  ctx.strokeStyle = thumbBg;
+  ctx.lineWidth = 2.5;
+  ctx.stroke();
+}
+
+// Setup interactive dial
+function setupInteractiveDial({ canvasId, wrapId, valId, initialAngle, dark, step, showMarkers }) {
+  let angle = initialAngle;
+
+  const redraw = () => {
+    drawDial({ canvasId, angle, dark, step, showMarkers, trackWidth: 10, arcWidth: 12 });
+    if (valId) document.getElementById(valId).textContent = Math.round(angle) + '°';
+  };
+
+  redraw();
+
+  const wrap = document.getElementById(wrapId);
+  if (!wrap) return;
+
+  let dragging = false;
+  const getAngle = (e) => {
+    const canvas = document.getElementById(canvasId);
+    const rect = canvas.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    let a = Math.atan2(clientY - cy, clientX - cx) * 180 / Math.PI + 90;
+    a = ((a % 360) + 360) % 360;
+    if (step) a = Math.round(a / step) * step;
+    return a;
+  };
+
+  wrap.addEventListener('mousedown', e => { dragging = true; angle = getAngle(e); redraw(); e.preventDefault(); });
+  window.addEventListener('mousemove', e => { if (dragging) { angle = getAngle(e); redraw(); } });
+  window.addEventListener('mouseup', () => { dragging = false; });
+}
+
+setupInteractiveDial({ canvasId: 'c1', wrapId: 'c1-wrap', valId: 'v1', initialAngle: 135, dark: false });
+setupInteractiveDial({ canvasId: 'c2', wrapId: 'c2-wrap', valId: 'v2', initialAngle: 90, dark: false, step: 45, showMarkers: true });
+drawDial({ canvasId: 'c3', angle: 60, dark: false, disabled: true, trackWidth: 8, arcWidth: 10 });
+setupInteractiveDial({ canvasId: 'c4', wrapId: 'c4-wrap', valId: 'v4', initialAngle: 220, dark: true });
+</script>
+</body>
+</html>

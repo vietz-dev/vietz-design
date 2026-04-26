@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: oklch(97% 0.012 85); padding: 20px 24px; color: oklch(16% 0.01 255); }
+  .prose { font-family: "IBM Plex Sans", sans-serif; font-size: 15px; line-height: 1.8; color: oklch(48% 0.01 255); max-width: 560px; }
+  .prose h2 { font-family: "IBM Plex Mono", monospace; font-size: 20px; font-weight: 600; letter-spacing: -0.01em; color: oklch(16% 0.01 255); margin-bottom: 8px; }
+  .prose h3 { font-family: "IBM Plex Mono", monospace; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: oklch(16% 0.01 255); margin-bottom: 6px; }
+  .prose p { margin-bottom: 0; }
+  .meta { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: oklch(65% 0.01 255); margin-bottom: 4px; }
+  .row { display: flex; gap: 32px; }
+  .col { flex: 1; }
+</style>
+</head>
+<body>
+<div class="row">
+  <div class="col">
+    <div class="meta">h2 — IBM Plex Mono 600 20px</div>
+    <div class="prose"><h2>Implementation</h2></div>
+    <div class="meta" style="margin-top:8px">h3 — IBM Plex Mono 600 17px</div>
+    <div class="prose"><h3>What even is a reverse proxy?</h3></div>
+  </div>
+  <div class="col">
+    <div class="meta">body — IBM Plex Sans 400 15px / 1.8</div>
+    <div class="prose"><p>I am a full-stack developer building thoughtful web experiences and practical tools. I enjoy shipping clean, maintainable products.</p></div>
+  </div>
+</div>
+</body>
+</html>

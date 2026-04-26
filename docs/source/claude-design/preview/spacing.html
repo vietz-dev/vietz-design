@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: oklch(97% 0.012 85); padding: 16px 20px; font-family: "IBM Plex Mono", monospace; color: oklch(16% 0.01 255); }
+  .row { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+  .bar-wrap { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+  .bar { background: oklch(52% 0.14 38); border-radius: 2px; opacity: 0.85; }
+  .val { font-size: 9px; color: oklch(65% 0.01 255); }
+  .name { font-size: 10px; font-weight: 600; }
+  .divider { width: 1px; background: oklch(82% 0.012 85); height: 60px; margin: 0 4px; align-self: center; }
+  .layout-row { display: flex; gap: 12px; margin-top: 14px; align-items: center; }
+  .layout-pill { background: oklch(94% 0.04 38); border: 1px solid oklch(52% 0.14 38); color: oklch(52% 0.14 38); font-size: 10px; border-radius: 3px; padding: 3px 8px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="bar-wrap"><div class="bar" style="width:4px;height:4px"></div><div class="name">4</div><div class="val">tag pad</div></div>
+    <div class="bar-wrap"><div class="bar" style="width:6px;height:8px"></div><div class="name">6</div><div class="val">gap-xs</div></div>
+    <div class="bar-wrap"><div class="bar" style="width:8px;height:12px"></div><div class="name">8</div><div class="val">tag px</div></div>
+    <div class="bar-wrap"><div class="bar" style="width:12px;height:20px"></div><div class="name">12</div><div class="val">gap-sm</div></div>
+    <div class="bar-wrap"><div class="bar" style="width:16px;height:28px"></div><div class="name">16</div><div class="val">bl-quote</div></div>
+    <div class="bar-wrap"><div class="bar" style="width:18px;height:32px"></div><div class="name">18</div><div class="val">code pad</div></div>
+    <div class="bar-wrap"><div class="bar" style="width:20px;height:40px"></div><div class="name">20</div><div class="val">card-py</div></div>
+    <div class="bar-wrap"><div class="bar" style="width:24px;height:48px"></div><div class="name">24</div><div class="val">card-px</div></div>
+    <div class="bar-wrap"><div class="bar" style="width:24px;height:48px"></div><div class="name">24</div><div class="val">container-px</div></div>
+    <div class="bar-wrap"><div class="bar" style="width:40px;height:56px"></div><div class="name">40</div><div class="val">title-mb</div></div>
+    <div class="bar-wrap"><div class="bar" style="width:56px;height:64px"></div><div class="name">56</div><div class="val">section-pt</div></div>
+    <div class="bar-wrap"><div class="bar" style="width:64px;height:72px"></div><div class="name">80</div><div class="val">section-pb</div></div>
+  </div>
+  <div class="layout-row">
+    <span class="layout-pill">max-width: 768px</span>
+    <span class="layout-pill">padding-inline: 24px</span>
+    <span class="layout-pill">mobile ≤640px → 18px</span>
+  </div>
+</body>
+</html>

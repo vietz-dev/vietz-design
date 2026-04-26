@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: oklch(97% 0.012 85); padding: 24px; font-family: "IBM Plex Mono", monospace; }
+  .row { display: flex; gap: 48px; align-items: flex-start; }
+  .box { width: 140px; border: 1.5px solid oklch(70% 0.012 85); border-radius: 10px; padding: 16px; background: oklch(98.5% 0.009 85); font-size: 11px; color: oklch(48% 0.01 255); }
+  .box.hover { box-shadow: 6px 6px 0 oklch(72% 0.012 85); transform: translate(-3px,-3px); }
+  .box.strong { box-shadow: 8px 8px 0 oklch(65% 0.016 38); transform: translate(-3px,-3px); }
+  .label { font-size: 10px; color: oklch(65% 0.01 255); margin-bottom: 14px; line-height: 1.5; }
+  .name { font-weight: 600; color: oklch(16% 0.01 255); font-size: 11px; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<div class="row">
+  <div>
+    <div class="name">Default (no shadow)</div>
+    <div class="label">border only, radius 10px</div>
+    <div class="box">surface-card</div>
+  </div>
+  <div>
+    <div class="name">--shadow-hover</div>
+    <div class="label">6px 6px 0 border-color<br>translate(-3,-3)</div>
+    <div class="box hover">on hover</div>
+  </div>
+  <div>
+    <div class="name">--shadow-hover-strong</div>
+    <div class="label">8px 8px 0 accent-tinted<br>translate(-3,-3)</div>
+    <div class="box strong">on hover (strong)</div>
+  </div>
+</div>
+</body>
+</html>

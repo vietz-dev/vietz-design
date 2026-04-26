@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: oklch(97% 0.012 85); padding: 20px 24px; font-family: "IBM Plex Mono", monospace; }
+  .row { display: flex; gap: 24px; align-items: center; }
+  .item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .box { background: oklch(98.5% 0.009 85); border: 1.5px solid oklch(70% 0.012 85); }
+  .name { font-size: 10px; font-weight: 600; color: oklch(16% 0.01 255); }
+  .val { font-size: 9px; color: oklch(65% 0.01 255); }
+</style>
+</head>
+<body>
+<div class="row">
+  <div class="item">
+    <div class="box" style="width:64px;height:48px;border-radius:3px"></div>
+    <div class="name">3px</div><div class="val">tags</div>
+  </div>
+  <div class="item">
+    <div class="box" style="width:64px;height:48px;border-radius:4px"></div>
+    <div class="name">4px</div><div class="val">inline code</div>
+  </div>
+  <div class="item">
+    <div class="box" style="width:64px;height:48px;border-radius:6px"></div>
+    <div class="name">6px</div><div class="val">color swatches</div>
+  </div>
+  <div class="item">
+    <div class="box" style="width:64px;height:48px;border-radius:8px"></div>
+    <div class="name">8px</div><div class="val">code blocks</div>
+  </div>
+  <div class="item">
+    <div class="box" style="width:64px;height:48px;border-radius:10px"></div>
+    <div class="name">10px</div><div class="val">cards</div>
+  </div>
+  <div class="item">
+    <div class="box" style="width:64px;height:10px;border-radius:999px"></div>
+    <div class="name">999px</div><div class="val">scrollbar thumb</div>
+  </div>
+</div>
+</body>
+</html>

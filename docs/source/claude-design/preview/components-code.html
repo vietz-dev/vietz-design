@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: oklch(97% 0.012 85); padding: 20px 24px; font-family: "IBM Plex Sans", sans-serif; }
+  .label { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: oklch(65% 0.01 255); margin-bottom: 8px; }
+  .code-block { background: oklch(20% 0.01 255); color: oklch(90% 0.01 255); font-family: "IBM Plex Mono", monospace; padding: 18px 22px; border-radius: 8px; font-size: 13px; line-height: 1.6; }
+  .inline-code { background: oklch(94% 0.04 38); color: oklch(52% 0.14 38); border: 1px solid color-mix(in oklab, oklch(52% 0.14 38) 45%, transparent); padding: 0.15rem 0.35rem; border-radius: 4px; font-family: "IBM Plex Mono", monospace; font-size: 13px; }
+  .prose { font-size: 14px; line-height: 1.7; color: oklch(48% 0.01 255); margin-bottom: 10px; }
+  .kw { color: oklch(70% 0.14 38); }
+  .fn { color: oklch(75% 0.1 200); }
+  .str { color: oklch(72% 0.12 150); }
+</style>
+</head>
+<body>
+  <div class="prose">Use <code class="inline-code">ServeHTTP</code> to implement the <code class="inline-code">Handler</code> interface — inline code gets accent styling.</div>
+  <div class="label">code block — IBM Plex Mono, bg: code-bg, radius 8px</div>
+  <pre class="code-block"><span class="kw">type</span> <span class="fn">Route</span> <span class="kw">struct</span> {
+  Upstream <span class="kw">string</span>
+  Prefix   <span class="kw">string</span>
+  Timeout  time.Duration
+}</pre>
+</body>
+</html>

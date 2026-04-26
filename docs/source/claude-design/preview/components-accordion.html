@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: oklch(97% 0.012 85);
+    --bg-card: oklch(98.5% 0.009 85);
+    --fg: oklch(16% 0.01 255);
+    --fg-muted: oklch(48% 0.01 255);
+    --fg-faint: oklch(65% 0.01 255);
+    --border: oklch(82% 0.012 85);
+    --border-strong: oklch(70% 0.012 85);
+    --accent: oklch(52% 0.14 38);
+    --accent-bg: oklch(94% 0.04 38);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    font-family: "IBM Plex Sans", sans-serif;
+    padding: 20px 24px;
+    color: var(--fg);
+  }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .col-label { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--fg-faint); margin-bottom: 10px; }
+
+  /* ── Accordion base ── */
+  .accordion {
+    border: 1.5px solid var(--border-strong);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--bg-card);
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid var(--border);
+  }
+  .accordion-item:last-child { border-bottom: none; }
+
+  .accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--fg);
+    text-align: left;
+    transition: background 0.15s, color 0.15s;
+    gap: 12px;
+  }
+  .accordion-trigger:hover {
+    background: var(--accent-bg);
+  }
+
+  /* open state */
+  .accordion-trigger[data-state="open"] {
+    color: var(--accent);
+  }
+
+  /* disabled state */
+  .accordion-trigger[data-disabled] {
+    color: var(--fg-faint);
+    cursor: not-allowed;
+  }
+  .accordion-trigger[data-disabled]:hover {
+    background: transparent;
+  }
+
+  /* focus */
+  .accordion-trigger:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+
+  /* indicator — chevron */
+  .accordion-indicator {
+    display: flex; align-items: center; flex-shrink: 0;
+    color: var(--fg-faint);
+    transition: transform 0.2s ease, color 0.15s;
+  }
+  [data-state="open"] .accordion-indicator {
+    transform: rotate(180deg);
+    color: var(--accent);
+  }
+  [data-disabled] .accordion-indicator {
+    color: var(--fg-faint);
+  }
+
+  /* content */
+  .accordion-content {
+    overflow: hidden;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--fg-muted);
+  }
+  .accordion-content[data-state="open"] {
+    display: block;
+  }
+  .accordion-content[data-state="closed"] {
+    display: none;
+  }
+  .accordion-content-inner {
+    padding: 4px 18px 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* dark preview */
+  .dark-wrap {
+    background: oklch(13% 0.008 255);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .dark-wrap .accordion {
+    border-color: oklch(35% 0.008 255);
+    background: oklch(17% 0.008 255);
+  }
+  .dark-wrap .accordion-item { border-color: oklch(26% 0.008 255); }
+  .dark-wrap .accordion-trigger { color: oklch(93% 0.008 85); }
+  .dark-wrap .accordion-trigger:hover { background: oklch(22% 0.06 38); }
+  .dark-wrap .accordion-trigger[data-state="open"] { color: oklch(70% 0.14 38); }
+  .dark-wrap .accordion-trigger[data-disabled] { color: oklch(45% 0.008 255); }
+  .dark-wrap .accordion-indicator { color: oklch(45% 0.008 255); }
+  .dark-wrap [data-state="open"] .accordion-indicator { color: oklch(70% 0.14 38); }
+  .dark-wrap .accordion-content { color: oklch(62% 0.008 255); }
+  .dark-wrap .accordion-content-inner { border-color: oklch(26% 0.008 255); }
+  .dark-wrap .col-label { color: oklch(45% 0.008 255); }
+</style>
+</head>
+<body>
+<div class="grid">
+
+  <!-- Light mode -->
+  <div>
+    <div class="col-label">light mode — default state</div>
+    <div class="accordion">
+      <!-- Item 1: open -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-state="open">
+          <span>About ARK UI</span>
+          <span class="accordion-indicator">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
+        </button>
+        <div class="accordion-content" data-state="open">
+          <div class="accordion-content-inner">
+            Headless, framework-agnostic components. You bring the styles, it brings behavior and accessibility.
+          </div>
+        </div>
+      </div>
+      <!-- Item 2: closed -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-state="closed">
+          <span>Animations</span>
+          <span class="accordion-indicator">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
+        </button>
+        <div class="accordion-content" data-state="closed">
+          <div class="accordion-content-inner">Hidden content.</div>
+        </div>
+      </div>
+      <!-- Item 3: disabled -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-state="closed" data-disabled disabled>
+          <span>Disabled item</span>
+          <span class="accordion-indicator">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dark mode -->
+  <div>
+    <div class="col-label">dark mode</div>
+    <div class="dark-wrap">
+      <div class="col-label">dark mode — default state</div>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-trigger" data-state="open">
+            <span>About ARK UI</span>
+            <span class="accordion-indicator">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
+          </button>
+          <div class="accordion-content" data-state="open">
+            <div class="accordion-content-inner">
+              Headless, framework-agnostic components. You bring the styles, it brings behavior and accessibility.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" data-state="closed">
+            <span>Animations</span>
+            <span class="accordion-indicator">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
+          </button>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" data-state="closed" data-disabled disabled>
+            <span>Disabled item</span>
+            <span class="accordion-indicator">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

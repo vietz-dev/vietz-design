@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: oklch(97% 0.012 85); font-family: "IBM Plex Mono", monospace; padding: 16px; }
+  .row { display: flex; gap: 6px; align-items: stretch; }
+  .swatch { flex: 1; border-radius: 6px; height: 64px; display: flex; align-items: flex-end; padding: 6px 8px; }
+  .label { font-size: 9px; font-weight: 600; mix-blend-mode: normal; }
+  .section-label { font-size: 10px; color: oklch(48% 0.01 255); margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<div class="section-label">Accent — Rust Orange (hue 38, chroma 0.14)</div>
+<div class="row">
+  <div class="swatch" style="background:oklch(94% 0.04 38)"><span class="label" style="color:oklch(52% 0.14 38)">accent-bg</span></div>
+  <div class="swatch" style="background:oklch(88% 0.08 38)"><span class="label" style="color:oklch(35% 0.14 38)">+light</span></div>
+  <div class="swatch" style="background:oklch(75% 0.12 38)"><span class="label" style="color:white">+mid</span></div>
+  <div class="swatch" style="background:oklch(70% 0.14 38)"><span class="label" style="color:white">dark accent</span></div>
+  <div class="swatch" style="background:oklch(62% 0.14 38)"><span class="label" style="color:white">+mid</span></div>
+  <div class="swatch" style="background:oklch(52% 0.14 38)"><span class="label" style="color:white">accent</span></div>
+  <div class="swatch" style="background:oklch(40% 0.14 38)"><span class="label" style="color:white">+dark</span></div>
+  <div class="swatch" style="background:oklch(28% 0.10 38)"><span class="label" style="color:oklch(70% 0.14 38)">+darker</span></div>
+  <div class="swatch" style="background:oklch(22% 0.06 38)"><span class="label" style="color:oklch(70% 0.14 38)">accent-bg dk</span></div>
+</div>
+</body>
+</html>

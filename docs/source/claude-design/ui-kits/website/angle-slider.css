@@ -1,0 +1,189 @@
+/*
+ * vietz.dev Design System — Angle Slider
+ * Target: ARK UI AngleSlider (data-scope="angle-slider")
+ *
+ * Anatomy:
+ *   AngleSlider.Root         → [data-scope="angle-slider"][data-part="root"]
+ *   AngleSlider.Label        → [data-scope="angle-slider"][data-part="label"]
+ *   AngleSlider.Control      → [data-scope="angle-slider"][data-part="control"]
+ *   AngleSlider.Thumb        → [data-scope="angle-slider"][data-part="thumb"]
+ *   AngleSlider.MarkerGroup  → [data-scope="angle-slider"][data-part="marker-group"]
+ *   AngleSlider.Marker       → [data-scope="angle-slider"][data-part="marker"]
+ *   AngleSlider.ValueText    → [data-scope="angle-slider"][data-part="value-text"]
+ *
+ * ARK sets on root:
+ *   --value   current numeric value (0–360)
+ *   --angle   current angle in degrees
+ *
+ * ARK sets on each marker:
+ *   --marker-value          logical value
+ *   --marker-display-value  rotation angle for display
+ *
+ * ARK positions the thumb via JS-computed inline styles (left/top).
+ * Requires colors_and_type.css (or equivalent CSS vars) to be loaded first.
+ */
+
+/* ── Root ─────────────────────────────────────────────────── */
+
+[data-scope="angle-slider"][data-part="root"] {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+[data-scope="angle-slider"][data-part="root"][data-disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+[data-scope="angle-slider"][data-part="root"][data-invalid]
+  [data-scope="angle-slider"][data-part="control"] {
+  border-color: oklch(52% 0.2 20); /* error red-ish */
+}
+
+/* ── Label ────────────────────────────────────────────────── */
+
+[data-scope="angle-slider"][data-part="label"] {
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 12px;
+  color: var(--fg-muted);
+  letter-spacing: 0.04em;
+}
+
+[data-scope="angle-slider"][data-part="label"][data-disabled] {
+  color: var(--fg-faint);
+}
+
+/* ── Control (the circular track) ────────────────────────── */
+
+[data-scope="angle-slider"][data-part="control"] {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-strong);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  transition: border-color 0.15s ease;
+}
+
+[data-scope="angle-slider"][data-part="control"]:hover {
+  border-color: var(--accent);
+}
+
+[data-scope="angle-slider"][data-part="control"]:active {
+  cursor: grabbing;
+  border-color: var(--accent);
+}
+
+[data-scope="angle-slider"][data-part="control"][data-disabled] {
+  cursor: not-allowed;
+  border-color: var(--border);
+}
+
+/* ── Thumb (draggable handle on the perimeter) ────────────── */
+/*
+ * ARK positions the thumb via inline left/top styles.
+ * transform: translate(-50%, -50%) centers the thumb on its anchor point.
+ */
+
+[data-scope="angle-slider"][data-part="thumb"] {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg-card);
+  box-shadow: 0 0 0 1.5px var(--accent);
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  transition: box-shadow 0.15s ease, background 0.15s ease;
+}
+
+[data-scope="angle-slider"][data-part="thumb"]:active {
+  cursor: grabbing;
+}
+
+[data-scope="angle-slider"][data-part="thumb"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+[data-scope="angle-slider"][data-part="thumb"][data-disabled] {
+  background: var(--fg-faint);
+  box-shadow: 0 0 0 1.5px var(--fg-faint);
+  cursor: not-allowed;
+}
+
+[data-scope="angle-slider"][data-part="thumb"][data-invalid] {
+  background: oklch(52% 0.2 20);
+  box-shadow: 0 0 0 1.5px oklch(52% 0.2 20);
+}
+
+/* ── Marker Group ─────────────────────────────────────────── */
+
+[data-scope="angle-slider"][data-part="marker-group"] {
+  /* Full overlay on the control — ARK positions each marker */
+  position: absolute;
+  inset: 0;
+}
+
+/* ── Marker (tick dots at step positions) ─────────────────── */
+/*
+ * ARK sets --marker-display-value on each marker for rotation.
+ * Markers are absolutely positioned by ARK.
+ */
+
+[data-scope="angle-slider"][data-part="marker"] {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--border-strong);
+  transform: translate(-50%, -50%);
+  transition: background 0.15s ease;
+}
+
+[data-scope="angle-slider"][data-part="marker"][data-state="active"] {
+  background: var(--accent);
+}
+
+[data-scope="angle-slider"][data-part="marker"][data-disabled] {
+  background: var(--border);
+}
+
+/* ── Value Text ───────────────────────────────────────────── */
+
+[data-scope="angle-slider"][data-part="value-text"] {
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+  min-width: 48px;
+  text-align: center;
+}
+
+[data-scope="angle-slider"][data-part="value-text"][data-disabled] {
+  color: var(--fg-faint);
+}
+
+/* ── Indicator line (optional — drawn via pseudo-element) ─── */
+/*
+ * To add a line from center to thumb, add a child element
+ * inside .control with class "angle-slider-indicator", or use
+ * a pseudo-element on the control with rotate(var(--angle)):
+ *
+ * [data-scope="angle-slider"][data-part="control"]::after {
+ *   content: "";
+ *   position: absolute;
+ *   top: 50%; left: 50%;
+ *   width: 50%; height: 1.5px;
+ *   background: var(--accent);
+ *   transform-origin: 0% 50%;
+ *   transform: rotate(var(--angle));
+ *   opacity: 0.5;
+ * }
+ */

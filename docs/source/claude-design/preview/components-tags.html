@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: oklch(97% 0.012 85); padding: 20px 24px; font-family: "IBM Plex Mono", monospace; }
+  .section { margin-bottom: 16px; }
+  .label { font-size: 10px; color: oklch(65% 0.01 255); margin-bottom: 8px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .tag { display: inline-flex; align-items: center; font-family: "IBM Plex Mono", monospace; font-size: 11px; line-height: 1; letter-spacing: 0.08em; border-radius: 3px; padding: 4px 8px; }
+  .tag-dark { background: oklch(20% 0.01 255); color: oklch(97% 0.01 255); }
+  .tag-accent { background: oklch(94% 0.04 38); color: oklch(52% 0.14 38); border: 1px solid oklch(52% 0.14 38); }
+  /* dark mode simulation */
+  .dark-bg { background: oklch(17% 0.008 255); border-radius: 8px; padding: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag-dark-dm { background: oklch(80% 0.008 85); color: oklch(16% 0.01 255); border-radius: 3px; padding: 4px 8px; font-size: 11px; letter-spacing: 0.08em; }
+  .tag-accent-dm { background: oklch(22% 0.06 38); color: oklch(70% 0.14 38); border: 1px solid oklch(70% 0.14 38); border-radius: 3px; padding: 4px 8px; font-size: 11px; letter-spacing: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="section">
+    <div class="label">tag-dark (light mode)</div>
+    <div class="row">
+      <span class="tag tag-dark">golang</span>
+      <span class="tag tag-dark">reverse_proxy</span>
+      <span class="tag tag-dark">kubernetes</span>
+      <span class="tag tag-dark">typescript</span>
+      <span class="tag tag-dark">react</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="label">tag-accent</div>
+    <div class="row">
+      <span class="tag tag-accent">featured</span>
+      <span class="tag tag-accent">draft</span>
+      <span class="tag tag-accent">new</span>
+    </div>
+  </div>
+  <div class="label">dark mode variants</div>
+  <div class="dark-bg">
+    <span class="tag-dark-dm">golang</span>
+    <span class="tag-dark-dm">typescript</span>
+    <span class="tag-accent-dm">featured</span>
+    <span class="tag-accent-dm">new</span>
+  </div>
+</body>
+</html>

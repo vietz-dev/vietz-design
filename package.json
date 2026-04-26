@@ -1,0 +1,12 @@
+{
+  "name": "vietz-design",
+  "private": true,
+  "packageManager": "pnpm@10.9.0",
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev:storybook": "pnpm --filter @vietz-design/storybook storybook",
+    "build:storybook": "pnpm --filter @vietz-design/storybook build-storybook",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck"
+  }
+}
