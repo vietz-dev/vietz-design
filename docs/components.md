@@ -45,6 +45,15 @@ Global baseline styles are provided for:
 - sizes: `sm`, `md`, `lg`
 - notable states: disabled, icon support, full-width layout support, dark-theme compatible through tokens
 
+### Checkbox
+
+- package: `@vietz-design/react`
+- file: `packages/vietz-design-react/src/components/checkbox/checkbox.tsx`
+- status: implemented
+- basis: Ark UI Checkbox
+- purpose: branded boolean choice control with optional helper text
+- notable states: checked, indeterminate, disabled, dark-theme compatible through tokens
+
 ### Field
 
 - package: `@vietz-design/react`
@@ -71,6 +80,24 @@ Global baseline styles are provided for:
 - basis: Ark UI Field.Textarea
 - purpose: branded multiline text input for longer form content
 - notable states: invalid, disabled, read-only, resizable, dark-theme compatible through tokens
+
+### RadioGroup
+
+- package: `@vietz-design/react`
+- file: `packages/vietz-design-react/src/components/radio-group/radio-group.tsx`
+- status: implemented
+- basis: Ark UI Radio Group
+- purpose: branded single-selection group for mutually exclusive options
+- notable states: checked, disabled items, descriptive option text, dark-theme compatible through tokens
+
+### Switch
+
+- package: `@vietz-design/react`
+- file: `packages/vietz-design-react/src/components/switch/switch.tsx`
+- status: implemented
+- basis: Ark UI Switch
+- purpose: branded on/off toggle for immediate preference changes
+- notable states: checked, disabled, helper text, dark-theme compatible through tokens
 
 ### Tag
 

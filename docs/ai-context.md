@@ -38,8 +38,11 @@ Implemented components:
 
 - `Accordion` — Ark UI based
 - `Button`
+- `Checkbox` — Ark UI based
 - `Field` — Ark UI based
 - `Input` — Ark UI Field based
+- `RadioGroup` — Ark UI based
+- `Switch` — Ark UI based
 - `Textarea` — Ark UI Field based
 - `Tag`
 - `SurfaceCard`
@@ -48,7 +51,7 @@ Implemented components:
 Planned next areas:
 
 - buttons and links
-- additional form controls
+- select-style controls
 - navigation primitives
 - code blocks
 - cards specific to content/project/blog usage
