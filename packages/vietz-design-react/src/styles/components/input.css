@@ -1,0 +1,64 @@
+.input,
+.textarea {
+  width: 100%;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-card);
+  background: var(--bg-card);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.input {
+  min-height: 44px;
+  padding: 0 14px;
+}
+
+.textarea {
+  display: block;
+  min-height: 132px;
+  padding: 12px 14px;
+  resize: vertical;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--fg-faint);
+}
+
+.input:hover,
+.textarea:hover {
+  border-color: var(--accent);
+}
+
+.input:focus-visible,
+.textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.input:disabled,
+.textarea:disabled,
+.input[data-disabled],
+.textarea[data-disabled] {
+  background: color-mix(in oklab, var(--bg-card) 85%, var(--border));
+  color: var(--fg-faint);
+  cursor: not-allowed;
+}
+
+.input:read-only,
+.textarea:read-only,
+.input[data-readonly],
+.textarea[data-readonly] {
+  background: color-mix(in oklab, var(--bg-card) 88%, var(--accent-bg));
+}
+
+.input[aria-invalid='true'],
+.textarea[aria-invalid='true'],
+.input[data-invalid],
+.textarea[data-invalid] {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 65%, transparent);
+}

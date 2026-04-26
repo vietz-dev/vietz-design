@@ -45,6 +45,33 @@ Global baseline styles are provided for:
 - sizes: `sm`, `md`, `lg`
 - notable states: disabled, icon support, full-width layout support, dark-theme compatible through tokens
 
+### Field
+
+- package: `@vietz-design/react`
+- file: `packages/vietz-design-react/src/components/field/field.tsx`
+- status: implemented
+- basis: Ark UI Field
+- purpose: accessible form-field wrapper for labels, helper text, error text, and required state
+- notable states: required, invalid, disabled, read-only through Ark UI field state
+
+### Input
+
+- package: `@vietz-design/react`
+- file: `packages/vietz-design-react/src/components/input/input.tsx`
+- status: implemented
+- basis: Ark UI Field.Input
+- purpose: branded single-line text input for form entry
+- notable states: placeholder, invalid, disabled, read-only, dark-theme compatible through tokens
+
+### Textarea
+
+- package: `@vietz-design/react`
+- file: `packages/vietz-design-react/src/components/textarea/textarea.tsx`
+- status: implemented
+- basis: Ark UI Field.Textarea
+- purpose: branded multiline text input for longer form content
+- notable states: invalid, disabled, read-only, resizable, dark-theme compatible through tokens
+
 ### Tag
 
 - package: `@vietz-design/react`
@@ -77,7 +104,6 @@ These are expected next, based on the imported design reference:
 - BlogCard / content cards
 - Navigation primitives
 - Theme toggle
-- form inputs and textareas
 - tags and filters composed into richer patterns
 
 ## Update rule

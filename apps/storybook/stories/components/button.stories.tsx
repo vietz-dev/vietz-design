@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { ArrowRight, Send } from 'lucide-react'
 import { Button } from '@vietz-design/react'
 
 const meta = {
@@ -39,8 +38,8 @@ export const Ghost: Story = {
 export const WithIcon: Story = {
   args: {
     children: 'Send message',
-    startIcon: <Send size={16} />,
-    endIcon: <ArrowRight size={16} />,
+    startIcon: <span style={{ fontSize: 14 }}>↗</span>,
+    endIcon: <span style={{ fontSize: 14 }}>→</span>,
   },
 }
 

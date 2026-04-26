@@ -1,0 +1,41 @@
+.field {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+}
+
+.field__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.field__required-indicator {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.field__helper-text,
+.field__error-text {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.field__helper-text {
+  color: var(--fg-muted);
+}
+
+.field__error-text {
+  color: var(--accent);
+}
+
+.field[data-disabled] {
+  opacity: 0.8;
+}

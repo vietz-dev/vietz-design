@@ -38,6 +38,9 @@ Implemented components:
 
 - `Accordion` — Ark UI based
 - `Button`
+- `Field` — Ark UI based
+- `Input` — Ark UI Field based
+- `Textarea` — Ark UI Field based
 - `Tag`
 - `SurfaceCard`
 - `InlineCode`
@@ -45,7 +48,7 @@ Implemented components:
 Planned next areas:
 
 - buttons and links
-- form controls
+- additional form controls
 - navigation primitives
 - code blocks
 - cards specific to content/project/blog usage
