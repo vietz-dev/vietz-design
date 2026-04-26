@@ -6,4 +6,5 @@
 @import "./src/styles/components/field.css";
 @import "./src/styles/components/input.css";
 @import "./src/styles/components/radio-group.css";
+@import "./src/styles/components/select.css";
 @import "./src/styles/components/switch.css";

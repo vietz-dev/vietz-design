@@ -42,6 +42,7 @@ Implemented components:
 - `Field` — Ark UI based
 - `Input` — Ark UI Field based
 - `RadioGroup` — Ark UI based
+- `Select` — Ark UI based
 - `Switch` — Ark UI based
 - `Textarea` — Ark UI Field based
 - `Tag`
@@ -51,7 +52,7 @@ Implemented components:
 Planned next areas:
 
 - buttons and links
-- select-style controls
+- richer select and combobox-style controls
 - navigation primitives
 - code blocks
 - cards specific to content/project/blog usage

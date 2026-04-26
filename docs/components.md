@@ -90,6 +90,15 @@ Global baseline styles are provided for:
 - purpose: branded single-selection group for mutually exclusive options
 - notable states: checked, disabled items, descriptive option text, dark-theme compatible through tokens
 
+### Select
+
+- package: `@vietz-design/react`
+- file: `packages/vietz-design-react/src/components/select/select.tsx`
+- status: implemented
+- basis: Ark UI Select
+- purpose: branded single-select input for choosing one option from a list
+- notable states: placeholder, open, checked item, invalid, disabled items, dark-theme compatible through tokens
+
 ### Switch
 
 - package: `@vietz-design/react`
