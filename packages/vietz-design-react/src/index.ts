@@ -1,5 +1,7 @@
 export { Accordion } from './components/accordion/accordion'
 export type { AccordionItem, AccordionProps } from './components/accordion/accordion'
+export { Button } from './components/button/button'
+export type { ButtonProps, ButtonSize, ButtonVariant } from './components/button/button'
 export { Tag } from './components/tag/tag'
 export type { TagProps, TagVariant } from './components/tag/tag'
 export { SurfaceCard } from './components/surface-card/surface-card'

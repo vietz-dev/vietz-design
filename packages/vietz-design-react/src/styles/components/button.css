@@ -1,0 +1,109 @@
+.button {
+  all: unset;
+  display: inline-flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 42px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-card);
+  padding: 0 16px;
+  background: var(--bg-card);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.button[data-full-width] {
+  width: 100%;
+}
+
+.button:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.button:active {
+  box-shadow: none;
+}
+
+.button:disabled,
+.button[data-disabled] {
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.button[data-variant='primary'] {
+  border-color: var(--fg);
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.button[data-variant='primary']:hover {
+  background: color-mix(in oklab, var(--fg) 92%, var(--accent));
+  box-shadow: var(--shadow-hover-strong);
+}
+
+.button[data-variant='secondary'] {
+  background: var(--bg-card);
+  color: var(--fg);
+}
+
+.button[data-variant='secondary']:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.button[data-variant='ghost'] {
+  border-color: transparent;
+  background: transparent;
+  color: var(--fg-muted);
+  box-shadow: none;
+}
+
+.button[data-variant='ghost']:hover {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.button[data-size='sm'] {
+  min-height: 36px;
+  gap: 8px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+.button[data-size='md'] {
+  min-height: 42px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.button[data-size='lg'] {
+  min-height: 48px;
+  padding: 0 20px;
+  font-size: 15px;
+}
+
+.button__label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.button__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.button__icon > svg {
+  width: 16px;
+  height: 16px;
+}

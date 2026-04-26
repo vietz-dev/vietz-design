@@ -34,6 +34,17 @@ Global baseline styles are provided for:
 - purpose: disclosure content with branded styling and accessible behavior
 - notable states: open, closed, disabled, dark-theme compatible through tokens
 
+### Button
+
+- package: `@vietz-design/react`
+- file: `packages/vietz-design-react/src/components/button/button.tsx`
+- status: implemented
+- basis: native button element (Ark UI does not provide a standalone button primitive)
+- purpose: primary and supporting actions for forms and general UI flows
+- variants: `primary`, `secondary`, `ghost`
+- sizes: `sm`, `md`, `lg`
+- notable states: disabled, icon support, full-width layout support, dark-theme compatible through tokens
+
 ### Tag
 
 - package: `@vietz-design/react`
@@ -61,7 +72,6 @@ Global baseline styles are provided for:
 
 These are expected next, based on the imported design reference:
 
-- Button
 - Link
 - CodeBlock
 - BlogCard / content cards

@@ -12,12 +12,13 @@ pnpm add @vietz-design/react @ark-ui/react
 
 ```tsx
 import '@vietz-design/react/styles.css'
-import { Accordion, Tag, SurfaceCard } from '@vietz-design/react'
+import { Accordion, Button, Tag, SurfaceCard } from '@vietz-design/react'
 ```
 
 ## Included today
 
 - Accordion
+- Button
 - Tag
 - SurfaceCard
 - InlineCode

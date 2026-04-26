@@ -37,6 +37,7 @@ Implemented foundations:
 Implemented components:
 
 - `Accordion` — Ark UI based
+- `Button`
 - `Tag`
 - `SurfaceCard`
 - `InlineCode`
