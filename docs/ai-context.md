@@ -47,6 +47,7 @@ Implemented components:
 - `Select` — Ark UI based
 - `Switch` — Ark UI based
 - `Textarea` — Ark UI Field based
+- `Toast` — Ark UI based
 - `Tag`
 - `SurfaceCard`
 - `InlineCode`

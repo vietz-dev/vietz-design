@@ -126,6 +126,15 @@ Global baseline styles are provided for:
 - purpose: branded on/off toggle for immediate preference changes
 - notable states: checked, disabled, helper text, dark-theme compatible through tokens
 
+### Toast
+
+- package: `@vietz-design/react`
+- file: `packages/vietz-design-react/src/components/toast/toast.tsx`
+- status: implemented
+- basis: Ark UI Toast
+- purpose: branded transient notification system with toast store creation and rendered toast region
+- notable states: success/info/error types, closable actions, placement through Ark toaster config, dark-theme compatible through tokens
+
 ### Tag
 
 - package: `@vietz-design/react`

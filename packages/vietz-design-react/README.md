@@ -12,7 +12,7 @@ pnpm add @vietz-design/react @ark-ui/react
 
 ```tsx
 import '@vietz-design/react/styles.css'
-import { Accordion, AngleSlider, Button, Checkbox, Field, Fieldset, Input, RadioGroup, Select, Switch, Tag, SurfaceCard, Textarea } from '@vietz-design/react'
+import { Accordion, AngleSlider, Button, Checkbox, Field, Fieldset, Input, RadioGroup, Select, Switch, Tag, SurfaceCard, Textarea, ToastRegion, createToaster } from '@vietz-design/react'
 ```
 
 ## Included today
@@ -28,6 +28,7 @@ import { Accordion, AngleSlider, Button, Checkbox, Field, Fieldset, Input, Radio
 - Select
 - Switch
 - Textarea
+- ToastRegion
 - Tag
 - SurfaceCard
 - InlineCode

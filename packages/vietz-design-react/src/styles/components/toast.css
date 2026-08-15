@@ -1,0 +1,113 @@
+.toast-region {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.toast-region[data-placement^='top'] {
+  inset-block-start: 16px;
+}
+
+.toast-region[data-placement^='bottom'] {
+  inset-block-end: 16px;
+}
+
+.toast-region[data-placement$='start'] {
+  inset-inline-start: 16px;
+}
+
+.toast-region[data-placement$='end'] {
+  inset-inline-end: 16px;
+}
+
+.toast-region[data-placement='top'],
+.toast-region[data-placement='bottom'] {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.toast {
+  pointer-events: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  min-width: min(360px, calc(100vw - 32px));
+  max-width: min(420px, calc(100vw - 32px));
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-card);
+  background: var(--bg-card);
+  padding: 16px;
+  box-shadow: var(--shadow-hover);
+}
+
+.toast[data-type='success'] {
+  border-color: color-mix(in oklab, var(--accent) 55%, var(--border-strong));
+}
+
+.toast[data-type='error'] {
+  border-color: color-mix(in oklab, var(--accent) 70%, var(--fg));
+}
+
+.toast__body {
+  display: grid;
+  gap: 6px;
+}
+
+.toast__title {
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.toast__description {
+  color: var(--fg-muted);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.toast__actions {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.toast__action-trigger,
+.toast__close-trigger {
+  all: unset;
+  display: inline-flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  padding: 0 10px;
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.toast__action-trigger:hover,
+.toast__close-trigger:hover {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.toast__action-trigger:focus-visible,
+.toast__close-trigger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.toast__close-trigger {
+  width: 32px;
+  padding: 0;
+  font-size: 18px;
+}
