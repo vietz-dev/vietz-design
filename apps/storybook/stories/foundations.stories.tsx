@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { InlineCode, SurfaceCard, Tag } from '@vietz-design/react'
+import { InlineCode, SurfaceCard, Tag } from '@vietz-dev/design-react'
 
 function FoundationsShowcase() {
   return (

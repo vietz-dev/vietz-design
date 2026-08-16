@@ -7,6 +7,13 @@
     "dev:storybook": "pnpm --filter @vietz-design/storybook storybook",
     "build:storybook": "pnpm --filter @vietz-design/storybook build-storybook",
     "lint": "pnpm -r lint",
-    "typecheck": "pnpm -r typecheck"
+    "typecheck": "pnpm -r typecheck",
+    "changeset": "changeset",
+    "version-packages": "changeset version && pnpm install --lockfile-only",
+    "release": "pnpm --filter @vietz-dev/design-react build && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^1.0.0",
+    "@changesets/cli": "^3.0.0"
   }
 }

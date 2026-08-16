@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Field, Switch } from '@vietz-design/react'
+import { Field, Switch } from '@vietz-dev/design-react'
 
 const meta = {
   title: 'Components/Switch',

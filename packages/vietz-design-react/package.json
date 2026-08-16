@@ -1,8 +1,16 @@
 {
-  "name": "@vietz-design/react",
+  "name": "@vietz-dev/design-react",
   "version": "0.0.0",
   "private": false,
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vietz-dev/vietz-design.git",
+    "directory": "packages/vietz-design-react"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",

@@ -20,9 +20,13 @@ This repository is intentionally optimized for human and AI collaboration.
   - Storybook story/docs entry
   - an entry in `docs/components.md`
   - updates to architecture docs if the pattern changes
+  - a changeset
 - Architectural decisions should be recorded as ADRs in `docs/decisions/`.
 - Prefer design tokens and shared CSS over component-local ad hoc styling.
 - Keep the React package publishable as an independent package.
+- Every change to `packages/vietz-design-react` needs a changeset (`pnpm changeset`).
+  Use `pnpm changeset --empty` for changes that should not trigger a release.
+- Never edit package versions or `CHANGELOG.md` by hand — Changesets owns both.
 
 ## Source of truth hierarchy
 
@@ -39,7 +43,8 @@ This repository is intentionally optimized for human and AI collaboration.
 3. implement a styled component in `packages/vietz-design-react`
 4. add Storybook coverage for states, variants, and accessibility-relevant behaviors
 5. update `docs/components.md`
-6. add an ADR if the change introduces a new architectural pattern
+6. add a changeset with `pnpm changeset`
+7. add an ADR if the change introduces a new architectural pattern
 
 ## Imported design reference
 

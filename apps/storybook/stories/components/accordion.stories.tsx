@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Accordion } from '@vietz-design/react'
+import { Accordion } from '@vietz-dev/design-react'
 
 const items = [
   {

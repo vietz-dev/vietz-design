@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Field, Select } from '@vietz-design/react'
+import { Field, Select } from '@vietz-dev/design-react'
 
 const items = [
   { label: 'React', value: 'react' },

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Field, Input } from '@vietz-design/react'
+import { Field, Input } from '@vietz-dev/design-react'
 
 const meta = {
   title: 'Components/Input',

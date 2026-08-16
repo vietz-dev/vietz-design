@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { SurfaceCard, Tag } from '@vietz-design/react'
+import { SurfaceCard, Tag } from '@vietz-dev/design-react'
 
 const meta = {
   title: 'Components/SurfaceCard',

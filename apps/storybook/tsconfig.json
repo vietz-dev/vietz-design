@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@vietz-design/react": ["../../packages/vietz-design-react/src/index.ts"]
+      "@vietz-dev/design-react": ["../../packages/vietz-design-react/src/index.ts"]
     }
   },
   "include": [

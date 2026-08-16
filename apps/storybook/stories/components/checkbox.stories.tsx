@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Checkbox, Field } from '@vietz-design/react'
+import { Checkbox, Field } from '@vietz-dev/design-react'
 
 const meta = {
   title: 'Components/Checkbox',

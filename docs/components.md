@@ -6,7 +6,7 @@ This file is the AI-readable inventory of what exists in the design system.
 
 ### Tokens
 
-Available through `@vietz-design/react/styles.css`.
+Available through `@vietz-dev/design-react/styles.css`.
 
 Important token groups:
 
@@ -27,7 +27,7 @@ Global baseline styles are provided for:
 
 ### Accordion
 
-- package: `@vietz-design/react`
+- package: `@vietz-dev/design-react`
 - file: `packages/vietz-design-react/src/components/accordion/accordion.tsx`
 - status: implemented
 - basis: Ark UI Accordion
@@ -36,7 +36,7 @@ Global baseline styles are provided for:
 
 ### AngleSlider
 
-- package: `@vietz-design/react`
+- package: `@vietz-dev/design-react`
 - file: `packages/vietz-design-react/src/components/angle-slider/angle-slider.tsx`
 - status: implemented
 - basis: Ark UI Angle Slider
@@ -45,7 +45,7 @@ Global baseline styles are provided for:
 
 ### Button
 
-- package: `@vietz-design/react`
+- package: `@vietz-dev/design-react`
 - file: `packages/vietz-design-react/src/components/button/button.tsx`
 - status: implemented
 - basis: native button element (Ark UI does not provide a standalone button primitive)
@@ -56,7 +56,7 @@ Global baseline styles are provided for:
 
 ### Checkbox
 
-- package: `@vietz-design/react`
+- package: `@vietz-dev/design-react`
 - file: `packages/vietz-design-react/src/components/checkbox/checkbox.tsx`
 - status: implemented
 - basis: Ark UI Checkbox
@@ -65,7 +65,7 @@ Global baseline styles are provided for:
 
 ### Field
 
-- package: `@vietz-design/react`
+- package: `@vietz-dev/design-react`
 - file: `packages/vietz-design-react/src/components/field/field.tsx`
 - status: implemented
 - basis: Ark UI Field
@@ -74,7 +74,7 @@ Global baseline styles are provided for:
 
 ### Fieldset
 
-- package: `@vietz-design/react`
+- package: `@vietz-dev/design-react`
 - file: `packages/vietz-design-react/src/components/fieldset/fieldset.tsx`
 - status: implemented
 - basis: Ark UI Fieldset
@@ -83,7 +83,7 @@ Global baseline styles are provided for:
 
 ### Input
 
-- package: `@vietz-design/react`
+- package: `@vietz-dev/design-react`
 - file: `packages/vietz-design-react/src/components/input/input.tsx`
 - status: implemented
 - basis: Ark UI Field.Input
@@ -92,7 +92,7 @@ Global baseline styles are provided for:
 
 ### Textarea
 
-- package: `@vietz-design/react`
+- package: `@vietz-dev/design-react`
 - file: `packages/vietz-design-react/src/components/textarea/textarea.tsx`
 - status: implemented
 - basis: Ark UI Field.Textarea
@@ -101,7 +101,7 @@ Global baseline styles are provided for:
 
 ### RadioGroup
 
-- package: `@vietz-design/react`
+- package: `@vietz-dev/design-react`
 - file: `packages/vietz-design-react/src/components/radio-group/radio-group.tsx`
 - status: implemented
 - basis: Ark UI Radio Group
@@ -110,7 +110,7 @@ Global baseline styles are provided for:
 
 ### Select
 
-- package: `@vietz-design/react`
+- package: `@vietz-dev/design-react`
 - file: `packages/vietz-design-react/src/components/select/select.tsx`
 - status: implemented
 - basis: Ark UI Select
@@ -119,7 +119,7 @@ Global baseline styles are provided for:
 
 ### Switch
 
-- package: `@vietz-design/react`
+- package: `@vietz-dev/design-react`
 - file: `packages/vietz-design-react/src/components/switch/switch.tsx`
 - status: implemented
 - basis: Ark UI Switch
@@ -128,7 +128,7 @@ Global baseline styles are provided for:
 
 ### Toast
 
-- package: `@vietz-design/react`
+- package: `@vietz-dev/design-react`
 - file: `packages/vietz-design-react/src/components/toast/toast.tsx`
 - status: implemented
 - basis: Ark UI Toast
@@ -137,7 +137,7 @@ Global baseline styles are provided for:
 
 ### Tag
 
-- package: `@vietz-design/react`
+- package: `@vietz-dev/design-react`
 - file: `packages/vietz-design-react/src/components/tag/tag.tsx`
 - status: implemented
 - purpose: compact metadata or technology label
@@ -145,7 +145,7 @@ Global baseline styles are provided for:
 
 ### SurfaceCard
 
-- package: `@vietz-design/react`
+- package: `@vietz-dev/design-react`
 - file: `packages/vietz-design-react/src/components/surface-card/surface-card.tsx`
 - status: implemented
 - purpose: reusable branded card surface
@@ -153,7 +153,7 @@ Global baseline styles are provided for:
 
 ### InlineCode
 
-- package: `@vietz-design/react`
+- package: `@vietz-dev/design-react`
 - file: `packages/vietz-design-react/src/components/inline-code/inline-code.tsx`
 - status: implemented
 - purpose: inline code styling aligned with the source design system

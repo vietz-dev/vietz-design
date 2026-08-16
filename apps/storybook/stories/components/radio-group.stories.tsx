@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { RadioGroup } from '@vietz-design/react'
+import { RadioGroup } from '@vietz-dev/design-react'
 
 const items = [
   {

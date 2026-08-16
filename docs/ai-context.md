@@ -14,7 +14,8 @@ The design system should:
 
 ## Current package map
 
-- `packages/vietz-design-react`: React component library package
+- `packages/vietz-design-react`: React component library package, published as
+  `@vietz-dev/design-react` to the GitHub Packages registry of `vietz-dev/vietz-design`
 - `apps/storybook`: Storybook documentation and preview app
 - `docs/source/claude-design`: imported source material from the Claude design ZIP
 
@@ -25,6 +26,8 @@ The design system should:
 - colocate React component code with stories where it improves discoverability
 - use Storybook as the visual contract for implemented components
 - use markdown docs as the AI-readable contract for decisions and inventory
+- use Changesets as the single source of truth for versions and changelogs; every change to the
+  React package carries a changeset, and CI versions and publishes it (see ADR 0002)
 
 ## Current implementation status
 

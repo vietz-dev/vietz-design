@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { AngleSlider } from '@vietz-design/react'
+import { AngleSlider } from '@vietz-dev/design-react'
 
 const meta = {
   title: 'Components/AngleSlider',

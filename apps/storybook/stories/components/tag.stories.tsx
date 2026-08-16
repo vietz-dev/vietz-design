@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Tag } from '@vietz-design/react'
+import { Tag } from '@vietz-dev/design-react'
 
 const meta = {
   title: 'Components/Tag',

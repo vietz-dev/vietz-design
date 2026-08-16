@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { InlineCode } from '@vietz-design/react'
+import { InlineCode } from '@vietz-dev/design-react'
 
 const meta = {
   title: 'Components/InlineCode',
